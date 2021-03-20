@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_sale_wholesale_website_sale_wholesale,website_sale_wholesale.website_sale_wholesale,model_website_sale_wholesale_website_sale_wholesale,base.group_user,1,1,1,1

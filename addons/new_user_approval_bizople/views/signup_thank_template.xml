@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harpiya>
+
+	<template name="SignUp Thanks" id="appointment">
+		<t t-call="website.layout">
+			<div id="wrap">
+				<div class="oe_structure" />
+				<div class="container">
+					<h1>Thanks!</h1>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="alert alert-success">
+								Mesajınız başarıyla gönderildi.
+								<button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+							</div>
+							<p>
+								Kısa sürede geri dönüş sağlanacaktır.
+							</p>
+							<p class="mt64">
+								Acil bir durumunuz varsa, telefonla bizimle iletişime geçmekten çekinmeyin:
+							</p>
+							<ul class="list-unstyled">
+								<li>
+									<i class="fa fa-phone"></i>
+									:
+									<span t-field="res_company.phone" />
+								</li>
+								<li>
+									<i class="fa fa-envelope"></i>
+									:
+									<span t-field="res_company.email" />
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<t t-call="website.company_description" />
+						</div>
+					</div>
+				</div>
+				<div class="oe_structure" />
+			</div>
+		</t>
+	</template>
+	
+	<record id="signup_res_page" model="website.page">
+		<field name="website_published">True</field>
+		<field name="url">/signup-thank-you</field>
+		<field name="view_id" ref="appointment" />
+	</record>
+
+</harpiya>

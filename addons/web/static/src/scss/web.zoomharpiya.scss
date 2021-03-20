@@ -1,0 +1,34 @@
+
+.zoomharpiya {
+    position: relative;
+
+    /* 'Shrink-wrap' the element */
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+
+    img {
+        vertical-align: bottom;
+    }
+}
+
+.zoomharpiya-flyout {
+    position:absolute;
+    z-index: 100;
+    overflow: hidden;
+    background: #FFF;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+        max-width: 500%;
+    }
+}
+
+.zoomharpiya-hover .zoomharpiya-flyout {
+    left: 0;
+}
+
+.zoomharpiya-next .zoomharpiya-flyout {
+    left: 100%;
+}

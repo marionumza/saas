@@ -1,0 +1,5 @@
+<harpiya>
+    <record model="res.groups" id="test_group">
+        <field name="name">Test Group</field>
+    </record>
+</harpiya>

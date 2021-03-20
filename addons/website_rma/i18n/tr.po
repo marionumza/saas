@@ -1,0 +1,332 @@
+# Translation of Harpiya Server.
+# This file contains the translation of the following modules:
+# 	* website_rma
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Harpiya Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-16 16:04+0000\n"
+"PO-Revision-Date: 2020-07-16 16:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.rma_thankyou
+msgid "&amp;times;"
+msgstr ""
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "<i class=\"fa fa-cloud-upload\"/> Return"
+msgstr "<i class=\"fa fa-cloud-upload\"/> İade Talebi"
+
+#. module: website_rma
+#: model:ir.model.fields.selection,name:website_rma.selection__rma_order__state__approved
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Approved"
+msgstr "Onaylandı"
+
+#. module: website_rma
+#: model:ir.model.fields.selection,name:website_rma.selection__rma_order__state__cancel
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Cancel"
+msgstr "İptal"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__company_id
+msgid "Company"
+msgstr "Şirket"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Confirm"
+msgstr "Onayla"
+
+#. module: website_rma
+#: model:ir.model.fields.selection,name:website_rma.selection__rma_order__state__confirmed
+msgid "Confirmed"
+msgstr "Onaylandı"
+
+#. module: website_rma
+#: model:ir.model,name:website_rma.model_res_partner
+msgid "Contact"
+msgstr "Kontak"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__create_uid
+msgid "Created by"
+msgstr "Oluşturan"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__create_date
+msgid "Oluşturulma Tarihi"
+msgstr ""
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__partner_id
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Customer"
+msgstr "Müşteri"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Customer:"
+msgstr "Müşteri:"
+
+#. module: website_rma
+#: model:ir.model.fields,help:website_rma.field_rma_order__create_date
+msgid "Date on which RMA order is created."
+msgstr "İade talebinin oluşturulduğu tarih"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Delivery"
+msgstr "Teslim"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__delivery_count
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Delivery Orders"
+msgstr "Teslimat Siparişleri"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__display_name
+msgid "Display Name"
+msgstr "Görünen İsim"
+
+#. module: website_rma
+#: model:ir.model.fields.selection,name:website_rma.selection__rma_order__state__draft
+msgid "Draft"
+msgstr "Taslak"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Give us your Return Product's Reason..."
+msgstr "İade talebinizin nedenini kısaca açıklayın..."
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order____last_update
+msgid "Last Modified on"
+msgstr "Son Değiştirme Tarihi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__write_uid
+msgid "Last Updated by"
+msgstr "Son Güncelleyen"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__write_date
+msgid "Last Updated on"
+msgstr "Son Güncelleme Tarihi"
+
+#. module: website_rma
+#: code:addons/website_rma/controllers/main.py:0
+#, python-format
+msgid "Please specify at least one non-zero quantity."
+msgstr "Lütfen sıfır olmayan bir miktar girin."
+
+#. module: website_rma
+#: model:ir.ui.menu,name:website_rma.menu_rma_order
+msgid "RMA"
+msgstr "İade Talebi"
+
+#. module: website_rma
+#: model:ir.actions.act_window,name:website_rma.action_rma_order
+#: model:ir.model.fields,field_description:website_rma.field_stock_picking__rma_order_id
+#: model:ir.ui.menu,name:website_rma.menu_return_order
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_partner_form
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_sale_order_form
+msgid "RMA Order"
+msgstr "İade Talebi"
+
+#. module: website_rma
+#: model:ir.model,name:website_rma.model_rma_order
+#: model_terms:ir.ui.view,arch_db:website_rma.rma_orders
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_tree
+msgid "RMA Orders"
+msgstr "İade Talepleri"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__name
+msgid "RMA Reference"
+msgstr "İade Referansı"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Reason For Return"
+msgstr "İade Nedeni"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__reason
+msgid "Reason of Return"
+msgstr "İade Nedeni"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Ref. Number #"
+msgstr "Ref. Numarası #"
+
+#. module: website_rma
+#: model:ir.model.fields.selection,name:website_rma.selection__rma_order__state__return
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Return"
+msgstr "İade Edildi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__return_count
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Return Order"
+msgstr "İade Talebi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_res_partner__return_order_count
+#: model:ir.model.fields,field_description:website_rma.field_res_users__return_order_count
+#: model:ir.model.fields,field_description:website_rma.field_sale_order__return_order_count
+msgid "Return Orders"
+msgstr "İade Talepleri"
+
+#. module: website_rma
+#: model:ir.model,name:website_rma.model_stock_return_picking
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__return_order_ids
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Return Picking"
+msgstr "İade Transferi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__rma_product_id
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Return Product"
+msgstr "İade Etmek İstedğiniz Ürün"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Return Product:"
+msgstr "İade Etmek İstedğiniz Ürün"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__rma_product_uom_qty
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.view_rma_order_form
+msgid "Return Quantity"
+msgstr "İade Miktarı"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Return Quantity:"
+msgstr "İade Miktarı"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Return Reason:"
+msgstr "İade Nedeni"
+
+#. module: website_rma
+#: code:addons/website_rma/controllers/main.py:0
+#, python-format
+msgid "Return of %s"
+msgstr "İade edilen %s"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__order_id
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Sale Order"
+msgstr "Satış Siparişi"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Sale Order:"
+msgstr "Satış Siparişi"
+
+#. module: website_rma
+#: model:ir.model,name:website_rma.model_sale_order
+msgid "Sales Order"
+msgstr "Satış Siparişi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__team_id
+msgid "Sales Team"
+msgstr "Satış Ekibi"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__user_id
+msgid "Salesperson"
+msgstr "Satis Personeli"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Select Product..."
+msgstr "Ürün Seçin"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__state
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Status"
+msgstr "Durum"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__stock_picking_ids
+msgid "Stock Picking"
+msgstr ""
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Submit"
+msgstr "Gönder"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.rma_thankyou
+msgid ""
+"Thank you for your Return Order Request...!!! Our Sales Team Will Get Back "
+"to you soon...!!!"
+msgstr "İade talebiniz için teşekkür ederiz... Satış ekibimiz kısa süre içinde "
+"sizinle iletişime geçecektir."
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.rma_thankyou
+msgid "Thank you!"
+msgstr "Teşekkürler!"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "There are currently no RMA Orders for your account."
+msgstr "Şuan için iade talebiniz bulunmamakta."
+
+#. module: website_rma
+#: model:ir.model,name:website_rma.model_stock_picking
+msgid "Transfer"
+msgstr "Transfer"
+
+#. module: website_rma
+#: model:ir.model.fields,field_description:website_rma.field_rma_order__rma_product_uom
+msgid "UOM"
+msgstr ""
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.orders_followup_create_rma
+msgid "Website RMA"
+msgstr "İade Talebi"
+
+#. module: website_rma
+#: code:addons/website_rma/controllers/main.py:0
+#, python-format
+msgid "You have manually created product lines, please delete them to proceed"
+msgstr "Manuel olarak ürün grupları oluşturdunuz, lütfen devam etmek için bunları silin"
+
+#. module: website_rma
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_home_rma_orders
+#: model_terms:ir.ui.view,arch_db:website_rma.portal_my_rma
+msgid "Your RMA Orders"
+msgstr "İade Talepleriniz"

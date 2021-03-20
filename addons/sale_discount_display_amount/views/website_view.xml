@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<harpiya>
+    <template id="product_total" inherit_id="website_sale.total" name="Product Total">
+        <xpath expr="//div[@id='cart_total']//table/tr" position="after">
+            <tr>
+                <td class="text-right border-0">Ürün Toplamı:</td>
+                <td class="text-xl-right border-0">
+                    <t t-set="product_total"
+                       t-value="float(website_sale_order.price_total_no_discount) - float(website_sale_order.reward_amount)"/>
+                    <span class="monetary_field_2"
+                          style="white-space: nowrap;" t-esc="product_total"
+                          t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                </td>
+            </tr>
+            <tr t-if="website_sale_order and website_sale_order.discount_total">
+                <td class="text-right border-0" title="Proudct discounted amount">Ürün İndirimleri:</td>
+                <td class="text-xl-right border-0">
+                    <span t-field="website_sale_order.discount_total" style="white-space: nowrap;"
+                          class="monetary_field text-danger"
+                          t-options='{
+                          "widget": "monetary",
+                          "display_currency": website_sale_order.currency_id,
+                 }'/>
+                </td>
+            </tr>
+        </xpath>
+    </template>
+</harpiya>

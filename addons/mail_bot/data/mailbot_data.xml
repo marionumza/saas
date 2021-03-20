@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data>
+        <record id="base.partner_root" model="res.partner">
+            <field name="name">HarpiyaBot</field>
+            <field name="email">harpiyabot@example.com</field>
+            <field name="image_1920" type="base64" file="mail/static/src/img/harpiyabot.png"/>
+        </record>
+    </data>
+</harpiya>

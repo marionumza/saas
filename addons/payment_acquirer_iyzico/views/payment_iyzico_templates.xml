@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data noupdate="0">
+        <template id="iyzico_form">
+            <input type="hidden" name="reference" t-att-value="reference"/>
+            <input type="hidden" name="errorCode" t-att-value="errorCode"/>
+            <input type="hidden" name="status" t-att-value="status"/>
+            <input type="hidden" name="errorMessage" t-att-value="errorMessage"/>
+            <input type="hidden" name="paymentPageUrl" t-att-value="paymentPageUrl"/>
+            <script type="text/javascript" src="/payment_acquirer_iyzico/static/src/js/iyzico.js"></script>
+        </template>
+    </data>
+</harpiya>

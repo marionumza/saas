@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data>
+    
+        <record id="view_rma_order_tree" model="ir.ui.view">
+            <field name="name">rma.order.tree</field>
+            <field name="model">rma.order</field>
+            <field name="priority">4</field>
+            <field name="arch" type="xml">
+                <tree string="RMA Orders" class="o_rma_order">
+                    <field name="name" string="RMA Orders"/>
+                    <field name="order_id"/>
+                    <field name="partner_id"/>
+                    <field name="rma_product_id"/>
+                    <field name="rma_product_uom_qty"/>
+                    <field name="rma_product_uom"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+                
+    <record id="view_rma_order_form" model="ir.ui.view">
+            <field name="name">rma.order.form</field>
+            <field name="model">rma.order</field>
+            <field name="arch" type="xml">
+                <form string="RMA Order">
+
+                <header>
+                	<button name="action_confirm" string="Confirm" type="object" class="btn-primary" attrs="{'invisible': [('state', 'in', ['confirmed','approved', 'return','cancel'])]}"/>
+                	<button name="action_approved" string="Approved" type="object" class="btn-primary" attrs="{'invisible': [('state', 'in', ['draft', 'return', 'cancel','approved'])]}"/>
+                    <button name="action_return" string="Return" type="object" class="btn-primary" attrs="{'invisible': [('state', 'in', ['draft',  'cancel','confirmed','return'])]}"/>
+                    <button name="action_cancel" string="Cancel" type="object" class="btn-primary" attrs="{'invisible': [('state', '=', 'cancel')]}"/>
+                    <field name="state" widget="statusbar" />
+                </header>
+                
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                        name="action_view_delivery"
+                        class="oe_stat_button"
+                        icon="fa-truck"
+                        attrs="{'invisible': [('delivery_count', '=', 0)]}" groups="base.group_user">
+                        <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                    </button>
+                    
+                    <button type="object"
+                        name="action_view_return_order"
+                        class="oe_stat_button"
+                        icon="fa-undo"
+                        attrs="{'invisible': [('return_count', '=', 0)]}" groups="base.group_user">
+                        <field name="return_count" widget="statinfo" string="Return Order"/>
+                    </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="order_id"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+
+
+                    <group>
+                        <group>
+                            <field name="rma_product_id"/>
+                        </group>
+                        <group>
+                            <label for="rma_product_uom_qty" string="Return Quantity"/>
+                            
+                            <div>
+                                <field
+                                    context="{'partner_id':parent.partner_id, 'quantity':rma_product_uom_qty, 'pricelist':parent.pricelist_id, 'uom':rma_product_uom, 'uom_qty_change':True, 'company_id': parent.company_id}"
+                                    name="rma_product_uom_qty" class="oe_inline"/>
+                                <field name="rma_product_uom" groups="uom.group_uom" class="oe_inline oe_no_button" />
+                            </div>
+                            
+                        </group>
+                    </group>
+
+
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="team_id"/>
+                        </group>
+                    </group>
+                                        
+                 <notebook>
+                 	<page string="Reason For Return">
+                 		<field name="reason"/>
+                 	</page>
+                 	<page string="Delivery Orders">
+                 		<field name="stock_picking_ids" />
+                 	</page>
+                 	<page string="Return Picking">
+                 		<field name="return_order_ids"  />
+                 	</page>
+                 	
+                 </notebook>                       
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="action_rma_order" model="ir.actions.act_window">
+            <field name="name">RMA Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">rma.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="menu_rma_order" name="RMA"
+                parent="sale.sale_menu_root"
+                sequence="11"/>
+        
+        <menuitem id="menu_return_order" name="RMA Order"
+                parent="menu_rma_order" action="action_rma_order"
+                sequence="11"/>        
+
+	<record id="view_rma_order_picking_form" model="ir.ui.view">
+            <field name="name">rma_order_picking.form.view</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="backorder_id" position="after">
+                     <field name="rma_order_id"/>
+                </field>
+            </field>
+        </record>                
+
+    <record id="view_rma_order_sale_order_form" model="ir.ui.view">
+            <field name="name">rma_order_sale_order.form.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="action_rma_order_view" type="object" icon="fa-truck"
+                    attrs="{'invisible': [('return_order_count', '=', 0)]}" groups="base.group_user">
+                        <field name="return_order_count" widget="statinfo" string="RMA Order"/>
+                    </button>
+                </div>
+            </field>
+        </record>   
+
+    <record id="view_rma_order_partner_form" model="ir.ui.view">
+            <field name="name">rma_order_partner.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="action_rma_order_view" type="object" icon="fa-truck"
+                    attrs="{'invisible': [('return_order_count', '=', 0)]}" groups="base.group_user">
+                        <field name="return_order_count" widget="statinfo" string="RMA Order"/>
+                    </button>
+                </div>
+            </field>
+        </record>                             
+    </data>
+</harpiya>

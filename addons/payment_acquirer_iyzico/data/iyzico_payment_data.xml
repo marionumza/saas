@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data noupdate="1">
+        <record id="iyzico_payment" model="payment.acquirer">
+            <field name="name">Iyzico Payment</field>
+            <field name="image_128" type="base64" file="payment_acquirer_iyzico/static/src/img/iyzico.png"/>
+            <field name="provider">iyzico</field>
+            <field name="state">test</field>
+            <field name="view_template_id" ref="iyzico_form"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="iyzico_api_key">dummy</field>
+            <field name="iyzico_secret_key">dummy</field>
+        </record>
+    </data>
+</harpiya>

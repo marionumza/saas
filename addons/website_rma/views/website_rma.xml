@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data>
+	
+	    
+	    <template id="orders_followup_create_rma" name="Orders Followup Create RMA" inherit_id="sale.sale_order_portal_content">
+		    <xpath expr="//div[@id='informations']" position="inside" >
+			    <a id="return_rma" class="btn btn-primary pull-right oe_website_rma" title="Website RMA" href="#" data-toggle="modal" data-target="#websiterma" >
+		            <i class="fa fa-cloud-upload"></i> Return
+		        </a>
+					
+								
+				 <div id="websiterma" class="modal fade" role="dialog" aria-hidden="true">
+				    <div class="modal-dialog">
+				      <form class="modal-content" action="/rma/thankyou" method="post">
+				        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+				        <div class="modal-header">
+				          <button type="button" class="btn btn-primary close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+
+				          <div class="ayaz" align="center"> 
+				              <strong><h4 class="modal-title" id="bi_website_rma" aling="center">Return Product</h4></strong>
+				          </div>
+				        </div>
+				        <div class="modal-body">
+				            <div class="form-group col-lg-6">
+				                <label class="control-label" for="name">Customer:</label>
+				                <input type="hidden" name="partner_id" class="form-control" t-att-value="sale_order.partner_id.id" />
+				                <b style="color: #337AB7;"><span><t t-esc="sale_order.partner_id.name"/></span></b>
+				            </div>
+				            <div class="form-group col-lg-6">
+				                <label class="control-label" for="email">Sale Order:</label>
+				                <input type="hidden" name="order_id" class="form-control" t-att-value="sale_order.id" />
+				                <b style="color: #337AB7;"><span><t t-esc="sale_order.name"/></span></b>
+				            </div>
+				            
+						      <div class="form-group">
+							      <label class="control-label" for="product_id">Return Product:</label>
+							      <select name="product_id" class="form-control" required="required">
+							          <option value="">Select Product...</option>
+							          <t t-foreach="sale_order.order_line" t-as="ol">
+							              <option t-att-value="ol.product_id.id"><t t-esc="ol.product_id.name"/></option>
+							          </t>
+							      </select>
+					          </div>
+				            
+				            <div class="form-group">
+				                <label class="control-label" for="quantity">Return Quantity:</label>
+				                <input type="text" name="quantity" id="quantity" class="form-control" required="required"/>
+				            </div>
+
+				            <div class="form-group">
+				                <label class="control-label" for="reason">Return Reason:</label>
+				                <textarea name="reason" class="form-control o_website_form_input" placeholder="Give us your Return Product's Reason..." />
+				            </div>
+				            
+				        </div>
+				        <div class="modal-footer">
+				            <button type="submit" class="btn btn-primary">Submit</button>
+				        </div>
+				      </form>
+				    </div>
+				  </div>
+          
+          
+		    </xpath>
+        </template>
+
+
+		<!-- RMA Thank You page -->
+
+		<template id="rma_thankyou" name="RMA Thank You">
+			<t t-call="website.layout">
+				<div id="wrap">
+					<div class="oe_structure" />
+					<div class="container">
+						<h1>Thank you!</h1>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="alert alert-success">
+									Thank you for your Return Order Request...!!! Our Sales Team Will Get Back to you soon...!!!
+									<button type="button" class="close" data-dismiss="alert">&amp;times;
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="oe_structure" />
+				</div>
+			</t>
+		</template>		
+
+
+	    <!-- RMA Orders Page -->
+	    
+		<template id="portal_my_home_rma_orders" name="Portal My Home: RMA Orders"
+		inherit_id="portal.portal_my_home" priority="40">
+		<xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+			<t t-if="rma_count" t-call="portal.portal_docs_entry"> 
+				<!-- <span class="badge" t-esc="payments_count"/> <a href="/my/payments">Your Payment Receipts</a> -->
+				 <t t-set="title">Your RMA Orders</t> 
+				 <t t-set="url" t-value="'/my/rma'"/> 
+				 <t t-set="count" t-value="rma_count"/>
+			</t>
+		</xpath>
+	</template>
+	
+		<template id="rma_orders" name="RMA Orders"
+		inherit_id="portal.portal_breadcrumbs" priority="30">
+		<xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+			<li t-if="page_name == 'rma_count'" class="active">
+				<a t-if="rma_count" t-attf-href="/my/rma?{{ keep_query() }}">RMA Orders</a>
+				<t t-else="">RMA Orders</t>
+			</li>
+			<li t-if="rma_count">
+				<t t-esc="rma_count" />
+			</li>
+		</xpath>
+	</template>
+    
+
+	
+	<!-- RMA Orders Portal Page 
+	<template id="portal_my_rma_orders" name="Portal My RMA Orders" inherit_id="website_portal.portal_my_home">
+        <xpath expr="//div[contains(@class,'o_my_home_content')]" position="inside">
+            <h3 class="page-header">
+                <a href="/my/rma">Your RMA Orders
+                    <small class="ml8">
+                        <t t-if="rma_count">
+                            <span class='badge'><t t-esc="rma_count"/></span>
+                        </t>
+                        <t t-if="not rma_count">
+                            There are currently no RMA Orders for your account.
+                        </t>
+                    </small>
+                </a>
+            </h3>
+        </xpath>
+    </template>-->
+    
+
+	<!-- RMA Orders Page -->
+	<template id="portal_my_rma" name="My RMA Orders">
+      <t t-call="portal.portal_layout">
+        <h3 class="page-header">Your RMA Orders</h3>
+        <t t-if="not rma">
+            <p>There are currently no RMA Orders for your account.</p>
+        </t>
+        <t t-if="rma">
+            <table class="table table-hover o_my_status_table">
+                <thead>
+                  <tr class="active">
+                    <th style="width: 150px;">Ref. Number #</th>
+	                <th>Sale Order</th>
+	                <th>Customer</th>
+	                <th>Return Product</th>
+	                <th>Return Quantity</th>
+	                <th>Status</th>
+                  </tr>
+                </thead>
+                <t t-foreach="rma" t-as="rm">
+                    <tr>
+                        <td><span t-field="rm.name"/></td>
+                        <td><span t-field="rm.order_id.name"/></td>
+	                    <td><span t-field="rm.partner_id.name"/></td>
+	                    <td><span t-field="rm.rma_product_id.name"/></td>
+	                    <td><span t-field="rm.rma_product_uom_qty"/></td>
+	                    <td><span t-field="rm.state"/></td>
+                    </tr>
+                </t>
+            </table>
+            <div t-if="pager" class="o_portal_pager text-center">
+                <t t-call="website.pager"/>
+            </div>
+        </t>
+      </t>
+    </template>
+        		
+
+	</data>
+</harpiya>
